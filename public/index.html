@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecretPass - Secure Secret Sharing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔒 SecretPass</h1>
+            <p class="subtitle">Share secrets securely with one-time access links</p>
+        </header>
+
+        <main>
+            <div id="create-section" class="card">
+                <h2>Create a Secret</h2>
+                <p class="info">Enter your secret below. A unique link will be generated that can only be viewed once.</p>
+
+                <form id="secret-form">
+                    <div class="form-group">
+                        <label for="secret-input">Your Secret:</label>
+                        <textarea
+                            id="secret-input"
+                            rows="6"
+                            placeholder="Enter your password, message, or sensitive data here..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="expiry-select">Link expires in:</label>
+                        <select id="expiry-select">
+                            <option value="3600000">1 hour</option>
+                            <option value="21600000">6 hours</option>
+                            <option value="86400000" selected>24 hours</option>
+                            <option value="604800000">7 days</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Generate Secret Link</button>
+                </form>
+            </div>
+
+            <div id="result-section" class="card hidden">
+                <h2>✓ Secret Created!</h2>
+                <p class="info">Share this link with the recipient. It can only be viewed once.</p>
+
+                <div class="link-container">
+                    <input type="text" id="secret-link" readonly>
+                    <button id="copy-btn" class="btn btn-secondary">Copy Link</button>
+                </div>
+
+                <div class="warning">
+                    <strong>⚠️ Important:</strong> Once this link is opened, the secret will be permanently destroyed.
+                    Make sure to copy it before sharing!
+                </div>
+
+                <button id="create-another-btn" class="btn btn-text">Create Another Secret</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>Your secrets are stored temporarily and destroyed after first access or expiration.</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

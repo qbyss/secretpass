@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Secret - SecretPass</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔒 SecretPass</h1>
+            <p class="subtitle">View your one-time secret</p>
+        </header>
+
+        <main>
+            <div id="loading-section" class="card">
+                <div class="loader"></div>
+                <p>Loading secret...</p>
+            </div>
+
+            <div id="secret-section" class="card hidden">
+                <h2>Your Secret</h2>
+                <p class="info">This secret has been retrieved and permanently destroyed. It cannot be viewed again.</p>
+
+                <div class="secret-display">
+                    <pre id="secret-content"></pre>
+                </div>
+
+                <div class="button-group">
+                    <button id="copy-secret-btn" class="btn btn-primary">Copy Secret</button>
+                    <button id="clear-btn" class="btn btn-secondary">Clear from Screen</button>
+                </div>
+
+                <div class="warning">
+                    <strong>⚠️ Remember:</strong> This secret has been permanently deleted from the server.
+                    Save it now if you need it.
+                </div>
+
+                <a href="/" class="btn btn-text">Create Your Own Secret</a>
+            </div>
+
+            <div id="error-section" class="card error-card hidden">
+                <h2>❌ Secret Not Found</h2>
+                <p id="error-message" class="error-text">
+                    This secret does not exist or has already been viewed.
+                </p>
+                <p class="info">
+                    Secrets can only be viewed once and are automatically destroyed after access.
+                    If you need to share another secret, please create a new one.
+                </p>
+                <a href="/" class="btn btn-primary">Create a Secret</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>All secrets are destroyed immediately after viewing.</p>
+        </footer>
+    </div>
+
+    <script src="view.js"></script>
+</body>
+</html>
